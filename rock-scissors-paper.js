@@ -18,8 +18,16 @@ function handleIcon(imoticon) {
   const icon = `${imoticon}`;
 
   iconLi.innerHTML = icon;
+  iconLi.className = "shownIcon";
 
-  iconList.appendChild(iconLi);
+  const shownIcon = document.getElementsByClassName("shownIcon");
+
+  if (shownIcon.length) {
+    iconList.removeChild(shownIcon[0]);
+    iconList.appendChild(iconLi);
+  } else {
+    iconList.appendChild(iconLi);
+  }
 }
 
 const rspBtn = document.getElementsByClassName("rsp");
