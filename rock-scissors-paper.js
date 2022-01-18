@@ -17,8 +17,8 @@ let isRotating = false;
 
 // rotate 시작 함수
 const startRotate = () => {
-  result.innerHTML = "";
-  selected.innerHTML = "";
+  result.innerHTML = ""; // 결과 문구 초기화
+  selected.innerHTML = ""; // 선택자 초기화
   isRotating = setInterval(function () {
     if (index === 0) {
       handleRotate(0);

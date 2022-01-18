@@ -6,15 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src="rock-scissors-paper.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>가위 바위 보 게임</title>
   </head>
   <body>
     <button id="start">가위바위보 게임 시작</button>
 
-    <div class="rspContainer">
-      <div class="rsp" id="rotate">✊</div>
-      <div class="rsp" id="selected"></div>
-    </div>
+    <table class="rspContainer">
+      <tr>
+        <th>computer</th>
+        <th>player</th>
+      </tr>
+      <tr>
+        <td class="rsp" id="rotate">✊</td>
+        <td class="rsp" id="selected"></td>
+      </tr>
+    </table>
 
     <div class="btnContainer">
       <button name="rock" class="rspSelector">가위</button>
@@ -22,6 +28,9 @@
       <button name="paper" class="rspSelector">보</button>
     </div>
 
-    <div id="result"></div>
+    <div class="resultContainer">
+      <span>결과 : </span>
+      <span id="result"></span>
+    </div>
   </body>
 </html>
