@@ -1,43 +1,82 @@
 "use strict";
 
-// const r = "✊";
-// const s = "✌️";
-// const p = "🖐";
+// 가위, 바위, 보 배열로 할당
+const rsp = ["✌️", "✊", "🖐"];
 
-// const rsp = {
-//   r: "✊",
-//   s: "✌️",
-//   p: "🖐",
-// };
+// idx에 따라 가위, 바위, 보를 화면에 출력
+const rotate = document.getElementById("rotate");
+const handleRotate = (idx) => {
+  document.getElementById("rotate").innerHTML = rsp[idx];
+};
 
-const rsp = ["✊", "✌️", "🖐"];
+// 인덱스 초기값
+let index = 1;
 
-function handleIcon(imoticon) {
-  const iconList = document.getElementById("iconList");
-  const iconLi = document.createElement("li");
-  const icon = `${imoticon}`;
+// rotate 중단을 위한 초깃값
+let isRotating = false;
 
-  iconLi.innerHTML = icon;
-  iconLi.className = "shownIcon";
+// rotate 시작 함수
+const startRotate = () => {
+  result.innerHTML = "";
+  selected.innerHTML = "";
+  isRotating = setInterval(function () {
+    if (index === 0) {
+      handleRotate(0);
+      index = 1;
+    } else if (index === 1) {
+      handleRotate(1);
+      index = 2;
+    } else if (index === 2) {
+      handleRotate(2);
+      index = 0;
+    }
+  }, 100);
+};
 
-  const shownIcon = document.getElementsByClassName("shownIcon");
-
-  if (shownIcon.length) {
-    iconList.removeChild(shownIcon[0]);
-    iconList.appendChild(iconLi);
-  } else {
-    iconList.appendChild(iconLi);
+// rotate 중단 함수
+const stopRotate = () => {
+  if (isRotating) {
+    clearInterval(isRotating);
   }
-}
+};
 
-const rspBtn = document.getElementsByClassName("rsp");
+// 시작 버튼에 이벤트 부여
+document.getElementById("start").addEventListener("click", startRotate);
 
-for (let i = 0; i < rspBtn.length; i++) {
-  rspBtn[i].addEventListener("click", (e) => {
-    e.target.name === "rock"
-      ? handleIcon(rsp[0])
-      : e.target.name === "scissors"
-      ? handleIcon(rsp[1])
-      : handleIcon(rsp[2]);
+// 가위, 바위, 보 출력 함수
+const selected = document.getElementById("selected");
+const handleIcon = (idx) => {
+  selected.innerHTML = rsp[idx];
+};
+
+// 가위, 바위, 보 선택 버튼에 이벤트 부여
+const selectBtn = document.getElementsByClassName("rspSelector");
+
+[...selectBtn].map((el, idx) => {
+  el.addEventListener("click", () => {
+    handleIcon(idx);
+    stopRotate();
+    compareResult(rotate.innerHTML, selected.innerHTML);
   });
+});
+
+// 가위, 바위, 보 비교 함수
+const result = document.getElementById("result");
+function compareResult(left, right) {
+  //  예시:
+  if (
+    (left === "✌️" && right === "✌️") ||
+    (left === "✊" && right === "✊") ||
+    (left === "🖐" && right === "🖐")
+  ) {
+    return (result.innerHTML = "비겼습니다.");
+  } else if (
+    (left === "✌️" && right === "🖐") ||
+    (left === "✊" && right === "✌️") ||
+    (left === "🖐" && right === "✊")
+  ) {
+    return (result.innerHTML = "졌습니다.");
+  } else {
+    return (result.innerHTML = "이겼습니다.");
+  }
 }

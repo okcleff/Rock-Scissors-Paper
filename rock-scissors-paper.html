@@ -9,13 +9,19 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="iconContainer">
-      <ul id="iconList"></ul>
+    <button id="start">가위바위보 게임 시작</button>
+
+    <div class="rspContainer">
+      <div class="rsp" id="rotate">✊</div>
+      <div class="rsp" id="selected"></div>
     </div>
+
     <div class="btnContainer">
-      <button name="rock" class="rsp">rock</button>
-      <button name="scissors" class="rsp">scissors</button>
-      <button name="paper" class="rsp">paper</button>
+      <button name="rock" class="rspSelector">가위</button>
+      <button name="scissors" class="rspSelector">바위</button>
+      <button name="paper" class="rspSelector">보</button>
     </div>
+
+    <div id="result"></div>
   </body>
 </html>

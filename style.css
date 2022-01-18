@@ -1,3 +1,15 @@
-ul {
-  list-style: none;
+.rspContainer {
+  display: flex;
+}
+
+.rsp {
+  width: 100px;
+  margin: 5px;
+  border: 1px solid black;
+  font-size: 50px;
+  text-align: center;
+}
+
+.btnContainer {
+  margin-bottom: 20px;
 }
