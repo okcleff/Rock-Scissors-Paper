@@ -6,7 +6,7 @@ const rsp = ["✌️", "✊", "🖐"];
 // idx에 따라 가위, 바위, 보를 화면에 출력
 const rotate = document.getElementById("rotate");
 const handleRotate = (idx) => {
-  document.getElementById("rotate").innerHTML = rsp[idx];
+  rotate.innerHTML = rsp[idx];
 };
 
 // 인덱스 초기값
@@ -18,7 +18,7 @@ let isRotating = false;
 // rotate 시작 함수
 const startRotate = () => {
   result.innerHTML = ""; // 결과 문구 초기화
-  selected.innerHTML = ""; // 선택자 초기화
+  selected.innerHTML = ""; // 결과 화면 초기화
   isRotating = setInterval(function () {
     if (index === 0) {
       handleRotate(0);
@@ -63,7 +63,6 @@ const selectBtn = document.getElementsByClassName("rspSelector");
 // 가위, 바위, 보 비교 함수
 const result = document.getElementById("result");
 function compareResult(left, right) {
-  //  예시:
   if (
     (left === "✌️" && right === "✌️") ||
     (left === "✊" && right === "✊") ||
