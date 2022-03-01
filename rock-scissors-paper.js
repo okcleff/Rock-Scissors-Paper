@@ -52,8 +52,8 @@ const handleIcon = (idx) => {
 // 가위, 바위, 보 선택 버튼에 이벤트 부여
 const selectBtn = document.getElementsByClassName("rspSelector");
 
-[...selectBtn].map((el, idx) => {
-  el.addEventListener("click", () => {
+[...selectBtn].map((btn, idx) => {
+  btn.addEventListener("click", () => {
     handleIcon(idx);
     stopRotate();
     compareResult(rotate.innerHTML, selected.innerHTML);

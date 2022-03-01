@@ -9,28 +9,30 @@
     <title>가위 바위 보 게임</title>
   </head>
   <body>
-    <button id="start">가위바위보 게임 시작</button>
+    <div id="container">
+      <button id="start">가위바위보 게임 시작</button>
 
-    <table class="rspContainer">
-      <tr>
-        <th>computer</th>
-        <th>player</th>
-      </tr>
-      <tr>
-        <td class="rsp" id="rotate">✊</td>
-        <td class="rsp" id="selected"></td>
-      </tr>
-    </table>
+      <table class="rspContainer">
+        <tr>
+          <th>computer</th>
+          <th>player</th>
+        </tr>
+        <tr>
+          <td class="rsp" id="rotate">✊</td>
+          <td class="rsp" id="selected"></td>
+        </tr>
+      </table>
 
-    <div class="btnContainer">
-      <button class="rspSelector">가위</button>
-      <button class="rspSelector">바위</button>
-      <button class="rspSelector">보</button>
-    </div>
+      <div class="btnContainer">
+        <button class="rspSelector">가위</button>
+        <button class="rspSelector">바위</button>
+        <button class="rspSelector">보</button>
+      </div>
 
-    <div class="resultContainer">
-      <span>결과 : </span>
-      <span id="result"></span>
+      <div class="resultContainer">
+        <span>결과 : </span>
+        <span id="result"></span>
+      </div>
     </div>
   </body>
 </html>
